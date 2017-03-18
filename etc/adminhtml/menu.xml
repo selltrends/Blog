@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Atopt_Blog::blog_content" title="Blog" module="Atopt_Blog" sortOrder="50" parent="Atopt_Core::admin" resource="Atopt_Blog::blog_content" />
+        <add id="Atopt_Blog::post" title="Posts" module="Atopt_Blog" sortOrder="0" parent="Atopt_Blog::blog_content" action="blog/post" resource="Atopt_Blog::post"/>
+    </menu>
+</config>
