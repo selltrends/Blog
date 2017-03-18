@@ -1,0 +1,1 @@
+# A Simple Blog Module for Magento 2
