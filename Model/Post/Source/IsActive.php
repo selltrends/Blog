@@ -7,7 +7,6 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
      * @var \Atopt\Blog\Model\Post
      */
     protected $post;
-
     /**
      * Constructor
      *
@@ -17,7 +16,6 @@ class IsActive implements \Magento\Framework\Data\OptionSourceInterface
     {
         $this->post = $post;
     }
-
     /**
      * Get options
      *

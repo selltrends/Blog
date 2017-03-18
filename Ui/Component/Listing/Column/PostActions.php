@@ -11,15 +11,12 @@ class PostActions extends Column
     /** Url path */
     const BLOG_URL_PATH_EDIT = 'blog/post/edit';
     const BLOG_URL_PATH_DELETE = 'blog/post/delete';
-
     /** @var UrlInterface */
     protected $urlBuilder;
-
     /**
      * @var string
      */
     private $editUrl;
-
     /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
@@ -40,7 +37,6 @@ class PostActions extends Column
         $this->editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
-
     /**
      * Prepare Data Source
      *
@@ -68,7 +64,6 @@ class PostActions extends Column
                 }
             }
         }
-
         return $dataSource;
     }
 }

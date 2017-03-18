@@ -1,17 +1,14 @@
 <?php
 namespace Atopt\Blog\Block\Adminhtml\Post\Edit;
-
 /**
  * Adminhtml blog post edit form
  */
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
-
     /**
      * @var \Magento\Store\Model\System\Store
      */
     protected $_systemStore;
-
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -30,7 +27,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->_systemStore = $systemStore;
         parent::__construct($context, $registry, $formFactory, $data);
     }
-
     /**
      * Init form
      *
@@ -42,7 +38,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         $this->setId('post_form');
         $this->setTitle(__('Post Information'));
     }
-
     /**
      * Prepare form
      *
@@ -52,29 +47,23 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     {
         /** @var \Atopt\Blog\Model\Post $model */
         $model = $this->_coreRegistry->registry('blog_post');
-
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create(
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
         );
-
         $form->setHtmlIdPrefix('post_');
-
         $fieldset = $form->addFieldset(
             'base_fieldset',
             ['legend' => __('General Information'), 'class' => 'fieldset-wide']
         );
-
         if ($model->getPostId()) {
             $fieldset->addField('post_id', 'hidden', ['name' => 'post_id']);
         }
-
         $fieldset->addField(
             'title',
             'text',
             ['name' => 'title', 'label' => __('Post Title'), 'title' => __('Post Title'), 'required' => true]
         );
-
         $fieldset->addField(
             'url_key',
             'text',
@@ -86,7 +75,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'class' => 'validate-xml-identifier'
             ]
         );
-
         $fieldset->addField(
             'is_active',
             'select',
@@ -101,7 +89,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         if (!$model->getId()) {
             $model->setData('is_active', '1');
         }
-
         $fieldset->addField(
             'content',
             'editor',
@@ -113,11 +100,9 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'required' => true
             ]
         );
-
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);
-
         return parent::_prepareForm();
     }
 }

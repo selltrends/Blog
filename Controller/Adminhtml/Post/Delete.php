@@ -6,7 +6,6 @@ use Magento\TestFramework\ErrorLog\Logger;
 
 class Delete extends \Magento\Backend\App\Action
 {
-
     /**
      * {@inheritdoc}
      */
@@ -14,7 +13,6 @@ class Delete extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Atopt_Blog::delete');
     }
-
     /**
      * Delete action
      *

@@ -1,7 +1,7 @@
 <?php
 namespace Atopt\Blog\Controller\Index;
 
-use Magento\Framework\App\Action\Action;
+use \Magento\Framework\App\Action\Action;
 
 class Index extends Action
 {
@@ -16,7 +16,6 @@ class Index extends Action
 		$this->resultPageFactory = $resultPageFactory;
 		parent::__construct($context);
 	}
-	
 	/**
 	 * Blog Index, shows a list of recent blog posts.
 	 *

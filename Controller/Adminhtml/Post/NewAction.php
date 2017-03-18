@@ -7,7 +7,6 @@ class NewAction extends \Magento\Backend\App\Action
      * @var \Magento\Backend\Model\View\Result\Forward
      */
     protected $resultForwardFactory;
-
     /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
@@ -19,7 +18,6 @@ class NewAction extends \Magento\Backend\App\Action
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -27,7 +25,6 @@ class NewAction extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Atopt_Blog::save');
     }
-
     /**
      * Forward to edit
      *

@@ -11,7 +11,6 @@ class PostList extends \Magento\Framework\View\Element\Template implements
      * @var \Atopt\Blog\Model\ResourceModel\Post\CollectionFactory
      */
     protected $_postCollectionFactory;
-
     /**
      * Construct
      *
@@ -27,7 +26,6 @@ class PostList extends \Magento\Framework\View\Element\Template implements
         parent::__construct($context, $data);
         $this->_postCollectionFactory = $postCollectionFactory;
     }
-
     /**
      * @return \Atopt\Blog\Model\ResourceModel\Post\Collection
      */
@@ -49,7 +47,6 @@ class PostList extends \Magento\Framework\View\Element\Template implements
         }
         return $this->getData('posts');
     }
-
     /**
      * Return identifiers for produced content
      *
@@ -59,5 +56,4 @@ class PostList extends \Magento\Framework\View\Element\Template implements
     {
         return [\Atopt\Blog\Model\Post::CACHE_TAG . '_' . 'list'];
     }
-
 }

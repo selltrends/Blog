@@ -11,12 +11,10 @@ class Edit extends \Magento\Backend\App\Action
      * @var \Magento\Framework\Registry
      */
     protected $_coreRegistry = null;
-
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
     protected $resultPageFactory;
-
     /**
      * @param Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
@@ -31,7 +29,6 @@ class Edit extends \Magento\Backend\App\Action
         $this->_coreRegistry = $registry;
         parent::__construct($context);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -39,7 +36,6 @@ class Edit extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Atopt_Blog::save');
     }
-
     /**
      * Init actions
      *
@@ -55,7 +51,6 @@ class Edit extends \Magento\Backend\App\Action
             ->addBreadcrumb(__('Manage Blog Posts'), __('Manage Blog Posts'));
         return $resultPage;
     }
-
     /**
      * Edit Blog post
      *
@@ -66,25 +61,20 @@ class Edit extends \Magento\Backend\App\Action
     {
         $id = $this->getRequest()->getParam('post_id');
         $model = $this->_objectManager->create('Atopt\Blog\Model\Post');
-
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
                 $this->messageManager->addError(__('This post no longer exists.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
-
                 return $resultRedirect->setPath('*/*/');
             }
         }
-
         $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getFormData(true);
         if (!empty($data)) {
             $model->setData($data);
         }
-
         $this->_coreRegistry->register('blog_post', $model);
-
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
@@ -94,7 +84,6 @@ class Edit extends \Magento\Backend\App\Action
         $resultPage->getConfig()->getTitle()->prepend(__('Blog Posts'));
         $resultPage->getConfig()->getTitle()
             ->prepend($model->getId() ? $model->getTitle() : __('New Blog Post'));
-
         return $resultPage;
     }
 }

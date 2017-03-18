@@ -6,7 +6,6 @@ use Magento\TestFramework\ErrorLog\Logger;
 
 class Save extends \Magento\Backend\App\Action
 {
-
     /**
      * @param Action\Context $context
      */
@@ -14,7 +13,6 @@ class Save extends \Magento\Backend\App\Action
     {
         parent::__construct($context);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -22,7 +20,6 @@ class Save extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Atopt_Blog::save');
     }
-
     /**
      * Save action
      *
@@ -36,19 +33,15 @@ class Save extends \Magento\Backend\App\Action
         if ($data) {
             /** @var \Atopt\Blog\Model\Post $model */
             $model = $this->_objectManager->create('Atopt\Blog\Model\Post');
-
             $id = $this->getRequest()->getParam('post_id');
             if ($id) {
                 $model->load($id);
             }
-
             $model->setData($data);
-
             $this->_eventManager->dispatch(
                 'blog_post_prepare_save',
                 ['post' => $model, 'request' => $this->getRequest()]
             );
-
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved this Post.'));
@@ -64,7 +57,6 @@ class Save extends \Magento\Backend\App\Action
             } catch (\Exception $e) {
                 $this->messageManager->addException($e, __('Something went wrong while saving the post.'));
             }
-
             $this->_getSession()->setFormData($data);
             return $resultRedirect->setPath('*/*/edit', ['post_id' => $this->getRequest()->getParam('post_id')]);
         }
